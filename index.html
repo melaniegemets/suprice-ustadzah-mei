@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farewell 🌻</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+position: relative; /* Membuat koordinat bunga absolut patuh dari atas halaman */
+overflow-x:hidden;
+background:linear-gradient(135deg,#facc15,#fde68a,#fbbf24);
+}
+
+/* ===== AWAL ===== */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:70px;
+color:white;
+text-shadow: 0 0 25px #92400e;
+animation:masuk 2s;
+}
+
+.hero p{
+font-size:23px;
+color:white;
+margin-top:20px;
+}
+
+button{
+margin-top:40px;
+padding:16px 55px;
+border:none;
+border-radius:50px;
+background:white;
+color:#d97706;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 30px white;
+animation:pulse 2s infinite;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+@keyframes masuk{
+from{
+opacity:0;
+transform:scale(.5);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+#miniPage{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#0006;
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+visibility:hidden;
+transition:.4s;
+z-index:999;
+}
+
+
+#miniPage.show{
+opacity:1;
+visibility:visible;
+}
+
+
+.miniBox{
+width:350px;
+background:white;
+padding:35px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 0 50px white;
+animation:pop .5s;
+}
+
+
+.miniBox h2{
+color:#d97706;
+margin-bottom:20px;
+}
+
+
+.miniBox p{
+color:#78350f;
+font-size:18px;
+line-height:1.5;
+}
+
+
+.miniBox button{
+margin-top:25px;
+padding:12px 35px;
+font-size:16px;
+background:#fbbf24;
+color:white;
+box-shadow:none;
+}
+
+
+@keyframes pop{
+from{
+transform:scale(.5);
+}
+to{
+transform:scale(1);
+}
+}
+
+/* ===== SPARKLE ===== */
+.sparkle{
+position:fixed;
+width:7px;
+height:7px;
+background:white;
+border-radius:50%;
+box-shadow:
+0 0 15px white,
+0 0 35px white;
+animation:spark 4s linear infinite;
+z-index:1;
+pointer-events:none;
+}
+
+@keyframes spark{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-20vh);
+opacity:0;
+}
+}
+
+/* ===== BUNGA ===== */
+.flower {
+    position: absolute; /* Mengikuti panjang seluruh halaman website */
+    top: -50px;
+    font-size: 45px;
+    animation: jatuh linear infinite;
+    z-index: 3;
+    pointer-events: none;
+}
+
+@keyframes jatuh {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1; /* Bunga muncul halus saat mulai jatuh */
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(320vh) rotate(360deg); /* Jatuh sejauh 3 halaman (320vh) */
+        opacity: 0;
+    }
+}
+
+/* ===== SECTION KATA-KATA ===== */
+.quotes-section{
+min-height:100vh;
+background: linear-gradient(135deg,#fbbf24,#f59e0b);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:40px 20px;
+position:relative;
+z-index:5;
+}
+
+.quotes-section h2{
+font-size:55px;
+color:white;
+text-shadow: 0 0 20px #92400e;
+margin-bottom:30px;
+}
+
+.quotes-box{
+width:85%;
+max-width:800px;
+background:#ffffff44;
+padding:40px 30px;
+border-radius:30px;
+box-shadow:0 0 40px rgba(255,255,255,0.5);
+backdrop-filter:blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.quotes-box .petik{
+font-size: 80px;
+color: rgba(255, 255, 255, 0.6);
+font-family: Georgia, serif;
+line-height: 0;
+display: block;
+margin-top: 20px;
+margin-bottom: -10px;
+}
+
+.quotes-box p{
+font-size:24px;
+color:white;
+line-height:1.7;
+font-style:italic;
+text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+font-weight: 500;
+}
+
+.quotes-box .author{
+font-size:20px;
+color:#78350f;
+margin-top:25px;
+font-weight:bold;
+font-style: normal;
+letter-spacing: 1px;
+}
+
+.gift{
+font-size:70px;
+text-align:center;
+cursor:pointer;
+animation:goyang 1s infinite;
+}
+
+.gift p{
+font-size:18px;
+color:white;
+}
+
+@keyframes goyang{
+50%{
+transform:rotate(10deg);
+}
+}
+
+
+#hadiah{
+display:none;
+margin:30px;
+background:white;
+padding:30px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 0 40px white;
+color:#92400e;
+}
+
+/* ===== VIDEO ===== */
+.video-section{
+height:100vh;
+background: linear-gradient(135deg,#f59e0b,#d97706);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:30px;
+position:relative;
+z-index:5;
+}
+
+.video-section h2{
+font-size:55px;
+color:white;
+text-shadow: 0 0 20px #92400e;
+}
+
+.video-section p{
+font-size:22px;
+color:white;
+margin:20px;
+}
+
+.video-box{
+width:80%;
+max-width:900px;
+background:#ffffff66;
+padding:20px;
+border-radius:30px;
+box-shadow:0 0 40px white;
+backdrop-filter:blur(10px);
+}
+
+.video-box video{
+width:100%;
+border-radius:20px;
+}
+
+#atas{
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:999;
+width:50px;
+height:50px;
+padding:0;
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<h1>🌻 Farewell Day 🌻</h1>
+<p>Satu cerita berakhir, kenangan tetap tinggal ✨</p>
+<button onclick="mulai()">Mulai Perjalanan 💛</button>
+
+</section>
+
+<div id="miniPage">
+    <div class="miniBox">
+
+        <h2>🌻 anyeongg ustadzah meiiii 🌻</h2>
+
+        <p>
+        Sebelum lanjut...  
+        siap siap ya ustadzahh ada pesan dari anak anak gemasyhhh🤍
+        </p>
+
+        <button onclick="lanjut()">Lanjut ahh ✨</button>
+
+    </div>
+</div>
+
+<section class="quotes-section" id="quotes">
+<h2>bacaan unikk✨</h2>
+<div class="quotes-box">
+    <span class="petik">“</span>
+    <p>
+        Untuk Ustadzah tersayang,
+
+Awalnya kita pikir hari ini akan biasa aja. Tapi ternyata, semakin dekat waktunya, semakin terasa kalo kita bener bener bakal berpisah sama Ustadzah.
+
+Jyujyur endyul sebenernya kita sedih banget us. Sedih karena nanti kita ga bisa lagi sering ketemu, ga bisa lagi ngeliat senyum Ustadzah setiap hari, dan ga bisa lagi mendengar nasihat-nasihat yang kadang masuk telinga kanan, keluar telinga kiri... eh, jas kiding Ustadzah, sekarang udah masuk kok, walaupun agak telat. 😅
+
+jazakumullahu khoiron jazaa karena ustadzah udah sabar ngadepin anomali anomali kaya kita. Kita sadar, jadi guru kita itu ga mudah. Kadang kita rame pas belajar, kadang susah diatur, kadang lupa tugas, dan kadang kalau ditanya malah pura-pura sibuk buka buku. Tapi, Ustadzah tetap sabar menghadapi kita sampai hari ini.
+
+Kita juga mau minta maaf kalau selama ini lebih sering membuat Ustadzah mengelus dada daripada bangga. tapi ya usss, semua tingkah kita itu bukan karena ga sayang. Justru karena kita ngerasa nyaman dan dekat sama Ustadzah.
+
+Nanti kalo Ustadzah udahh ada di tempat yang baru, mungkin kita bakal fain fain aja. Kita bakal tetep belajar, tetap ngejalanin hari-hari kayak biasa. Tapi pasti ada momen kita kayak,
+
+"Eh, kalau ada Ustadzah mei pasti malem sabtu kita maraton drakor sampe tengah malem"    
+
+atau
+
+"Kalau Ustadzah mei masih di sini pasti bakal ngetok pintu kalo lampu belom mati." 😂
+
+Ustadzah, terima kasih sudah menjadi bagian dari cerita kita. Terima kasih sudah mengajarkan banyak hal, bukan hanya pelajaran, tetapi juga kesabaran, kebaikan, dan ketulusan.
+
+Kita ga tahu kapan bisa ketemu lagi. Yang jelas, kita berharap Ustadzah ga lupain kita. 
+Semoga Allah selalu menjaga Ustadzah di mana pun berada, memberikan kesehatan, kebahagiaan, dan keberkahan dalam setiap langkahnya.
+
+Dan kalau suatu hari Ustadzah miss sama kita, selowwww uss...  kita emang ngangenin jadi wajar kalo ustadzah kangen kita.. 😆🤍
+
+JAZAKUMULLAHU KHOIRON JAZAA, Ustadzah meiiiiiiii.
+    <div class="author">— Dari Kita anak kelas 10 yang gemets dan imyut</div>
+</div>
+</section>
+
+<div class="gift" onclick="bukaHadiah()">
+🎁
+<p>Klik hadiah kecil ini</p>
+</div>
+
+<div id="hadiah">
+    <h2>🌻 Surprise 🌻</h2>
+    <p>
+    Ustadzah, terima kasih sudah menjadi salah satu cerita indah kami 🤍
+    </p>
+</div>
+
+<section class="video-section" id="video">
+<h2>🎬 Video khusus untuk ustadzah mei tercintah</h2>
+<p>Sebuah persembahan kecil penuh kesan syedih</p>
+<div class="video-box">
+<video controls>
+<source src="vidio.mp4" type="video/mp4">
+</video>
+</div>
+</section>
+
+<audio id="musik" loop>
+<source src="sound.mp3" type="audio/mp3">
+</audio>
+<button onclick="topFunction()" id="atas">
+⬆️
+</button>
+
+<section class="quotes-section">
+
+<h2>🤍 SEE YOU NEXT TIME USTADZAH 🤍</h2>
+
+<div class="quotes-box">
+
+<p>
+Nanti kalau Ustadzah sudah pindah, jangan kaget kalau tiba-tiba kangen sama suara berisik kita. Itu efek samping pernah ketemu kita 😭😂
+<br><br>
+LOV YU SO MACH USTADZAH MEII🌻
+</p>
+
+</div>
+
+</section>
+
+<script>
+// SPARKLE
+for(let i=0;i<180;i++){
+let s=document.createElement("div");
+s.className="sparkle";
+s.style.left=Math.random()*100+"%";
+s.style.animationDelay=Math.random()*4+"s";
+s.style.animationDuration=(2+Math.random()*5)+"s";
+document.body.appendChild(s);
+}
+
+// BUNGA
+for(let i=0;i<40;i++){
+let f=document.createElement("div");
+f.className="flower";
+let bunga=["🌻","🤍"];
+
+f.innerHTML=bunga[Math.floor(Math.random()*bunga.length)];
+f.style.left=Math.random()*100+"%";
+f.style.animationDuration=(5+Math.random()*6)+"s";
+f.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(f);
+}
+
+function mulai(){
+
+let musik = document.getElementById("musik");
+musik.play();
+
+document.getElementById("miniPage").classList.add("show");
+
+}
+
+
+function lanjut(){
+
+document.getElementById("miniPage").classList.remove("show");
+
+
+setTimeout(()=>{
+
+document.getElementById("quotes").scrollIntoView({
+behavior:"smooth"
+});
+
+},300);
+
+}
+const teks = "🌻 Farewell Day 🌻";
+let i = 0;
+
+function ketik(){
+if(i < teks.length){
+document.querySelector(".hero h1").innerHTML += teks.charAt(i);
+i++;
+setTimeout(ketik,100);
+}
+}
+
+document.querySelector(".hero h1").innerHTML="";
+ketik();
+
+window.onscroll=function(){
+if(document.documentElement.scrollTop>300){
+document.getElementById("atas").style.display="block";
+}else{
+document.getElementById("atas").style.display="none";
+}
+}
+
+function topFunction(){
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+
+function bukaHadiah(){
+document.getElementById("hadiah").style.display="block";
+}
+
+
+</script>
+
+</body>
+</html>
